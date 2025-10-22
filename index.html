@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2299.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Multiplication Whac-A-Mole&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: 'Arial', sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100vh;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #87CEEB;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#game-container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h1 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#problem {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 2em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 40px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#board {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: grid;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(3, 100px);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>grid-template-rows: repeat(3, 100px);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.hole {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #A0522D;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 50%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.mole {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 80px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 80px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #D2B48C;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 50%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>bottom: -100px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: all 0.3s;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.5em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>user-select: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.mole.up {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>bottom: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#score, #time-left {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.5em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 10px 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="game-container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Multiplication Whac-A-Mole!&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="info"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;span id="score"&gt;Score: 0&lt;/span&gt; |<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;span id="time-left"&gt;Time: 60&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="problem"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="board"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button id="start-button"&gt;Start Game!&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const board = document.getElementById('board');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const scoreBoard = document.getElementById('score');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const timeLeftBoard = document.getElementById('time-left');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const problemBoard = document.getElementById('problem');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const startButton = document.getElementById('start-button');</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let score = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let timeLeft = 60;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let gameTimerId;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let moleTimerId;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let currentProblem = {};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Create the 3x3 grid for the game. [2]</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>for (let i = 0; i &lt; 9; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let hole = document.createElement('div');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>hole.classList.add('hole');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let mole = document.createElement('div');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>mole.classList.add('mole');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>hole.appendChild(mole);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>board.appendChild(hole);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const moles = document.querySelectorAll('.mole');</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function generateProblem() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const num1 = Math.floor(Math.random() * 9) + 2; // Numbers from 2 to 10</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const num2 = Math.floor(Math.random() * 9) + 2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const answer = num1 * num2;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>problemBoard.textContent = `${num1} x ${num2} = ?`;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>currentProblem = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>num1,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>num2,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>answer</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function generateAnswers() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const { answer } = currentProblem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let answers = [answer];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Generate unique incorrect answers</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>while (answers.length &lt; 5) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const num1 = currentProblem.num1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const num2 = currentProblem.num2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let wrongAnswer;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Create believable wrong answers</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (Math.random() &gt; 0.5) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>wrongAnswer = (num1 + (Math.random() &gt; 0.5 ? 1 : -1)) * num2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>wrongAnswer = num1 * (num2 + (Math.random() &gt; 0.5 ? 1 : -1));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (!answers.includes(wrongAnswer) &amp;&amp; wrongAnswer &gt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>answers.push(wrongAnswer);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return answers.sort(() =&gt; Math.random() - 0.5); // Shuffle answers</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function popUp() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>moles.forEach(mole =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>mole.classList.remove('up');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>mole.textContent = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>mole.removeEventListener('click', handleMoleClick);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>generateProblem();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const answers = generateAnswers();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let availableMoles = Array.from(moles);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>answers.forEach(ans =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (availableMoles.length &gt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const randomIndex = Math.floor(Math.random() * availableMoles.length);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const mole = availableMoles.splice(randomIndex, 1)[0];</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>mole.textContent = ans;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>mole.dataset.answer = ans; // Store the answer in a data attribute</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>mole.classList.add('up');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>mole.addEventListener('click', handleMoleClick);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function handleMoleClick(event) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const clickedAnswer = parseInt(event.target.dataset.answer, 10);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (clickedAnswer === currentProblem.answer) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>score++;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>scoreBoard.textContent = `Score: ${score}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>popUp(); // Show a new problem immediately</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>score = Math.max(0, score - 1); // Decrease score for wrong answer</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>scoreBoard.textContent = `Score: ${score}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function countdown() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>timeLeft--;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>timeLeftBoard.textContent = `Time: ${timeLeft}`;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (timeLeft === 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>clearInterval(gameTimerId);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>clearInterval(moleTimerId);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>problemBoard.textContent = `Game Over! Final Score: ${score}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>moles.forEach(mole =&gt; mole.classList.remove('up'));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function startGame() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>score = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>timeLeft = 60;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>scoreBoard.textContent = `Score: ${score}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>timeLeftBoard.textContent = `Time: ${timeLeft}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>startButton.disabled = true;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>popUp();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>moleTimerId = setInterval(popUp, 3000); // Moles pop up every 3 seconds</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gameTimerId = setInterval(countdown, 1000); // Timer counts down every second</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>startButton.addEventListener('click', startGame);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
